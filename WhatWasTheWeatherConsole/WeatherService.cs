@@ -1,21 +1,19 @@
 using System;
 using System.IO;
-using System.Security.Policy;
-using WhatWasTheWeather.Models;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using WhatWasTheWeather.Models;
 
-
-namespace WhatWasTheWeather
+namespace WhatWasTheWeatherConsole
 {
     public class WeatherService
     {
         private static readonly Uri worldWeatherServiceURL = new Uri("http://api.worldweatheronline.com");
         private HttpClient Client = new HttpClient(){ BaseAddress = worldWeatherServiceURL};
 
-        public Weather getWeatherForDate(DateTime date)
+        public Weather getWeatherForDate(DateTime date, int zipCode)
         {
              var request = Client.GetAsync("/premium/v1/past-weather.ashx?key=f4db177bb3bc4d91900234125191908&q=60185&date=2009-04-08&format=json");
              HttpResponseMessage responseMessage = request.Result;

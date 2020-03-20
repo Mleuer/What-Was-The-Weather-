@@ -8,7 +8,7 @@ namespace WhatWasTheWeatherConsole
         static void Main(string[] args)
         {
             WeatherService weatherService = new WeatherService();
-            weatherService.getWeatherForDate(new DateTime());
+            weatherService.getWeatherForDate(new DateTime(), 60185);
             Console.WriteLine();
         }
     }
